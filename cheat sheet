@@ -1,0 +1,14 @@
+cheat sheet
+rect: x y width height type
+semirect x y width height angle (0 = leste, 90 = norte) type
+circle x y radius type
+
+
+
+types = {
+	wall = 1
+	delivery area = 2
+	maquina = 3
+	linha preta = 4
+
+}

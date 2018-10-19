@@ -33,8 +33,14 @@ class WeightedGrid():
 			m = float((yf-yi))/(xf-xi)
 			lastx = xi
 			lasty = yi
-			for x in range(xi+1, xf):
-				for y in range(yi+1, yf):
+			passox = 1
+			passoy = 1
+			if(xi > xf):
+				passox = 1
+			if(yi > yf):
+				passoy = 1
+			for x in range(xi+1, xf, passox):
+				for y in range(yi+1, yf, passoy):
 					m2 = float(y - lasty)/(x - lastx)
 					if(m2 >= m):
 						self.wallPositions([(x,y)])
@@ -44,6 +50,8 @@ class WeightedGrid():
 						break
 					self.wallPositions([(x,y)])
 				lastx = x
+	def createMachineSpot(self, xi, xf, width, height):
+		pass
 	def printmap_bfs(self):
 		for j in range(0,self.height):
 			mystring = ""
@@ -100,3 +108,8 @@ class WeightedGrid():
 		else :   
 			return 1
 		
+if __name__ == '__main__':
+	gm = WeightedGrid(100,100)
+	gm.createWallsFromLine(0,0, 30,30)
+	gm.createWallsFromLine(30,30, 60, 0)
+	gm.printmap_bfs()
